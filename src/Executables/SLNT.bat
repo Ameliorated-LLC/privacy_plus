@@ -13,6 +13,10 @@ OpenShellSetup_4_4_191.exe /qn /quiet ADDLOCAL=StartMenu
 copy /y Fluent-Metro.skin "%PROGRAMFILES%\Open-Shell\Skins"
 copy /y Fluent-AME.skin7 "%PROGRAMFILES%\Open-Shell\Skins"
 
+for /f "usebackq delims=" %%A in (`dir /b /a:d "%SYSTEMDRIVE%\Users" ^| findstr /v /i /x /c:"Public" /c:"Default User" /c:"All Users"`) do (
+    mkdir "%SYSTEMDRIVE%\Users\%%A\AppData\Roaming\OpenShell\Pinned"
+)
+
 ::PowerShell -NoP -C "Invoke-WMIMethod -Class Win32_Process -Name Create -ArgumentList '%~dp0\silent_installers\OldCalculatorforWindows10Cfg.exe' | Wait-Process"
 ::OldClassicCalc-2.0-setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 

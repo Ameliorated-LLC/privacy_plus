@@ -13,7 +13,7 @@ for /f "usebackq delims=" %%A in (`reg query "HKCR" /k /f "AppX" ^| findstr /c:"
 @echo on
 
 :: smb config
-sc config lanmanworkstation depend= bowser/mrxsmb20/nsi
+:: sc config lanmanworkstation depend= bowser/mrxsmb20/nsi
 
 :: Enable Legacy F8 Bootmenu
 bcdedit /set {default} bootmenupolicy legacy
@@ -25,5 +25,3 @@ powercfg /h off
 :: Set Performance Plan to High Performance and display to never turn off
 powercfg /S 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 powercfg /change monitor-timeout-ac 0
-
-copy /y "UsrClass.dat" "%SYSTEMDRIVE%\Users\Default\AppData\Local\Microsoft\Windows"

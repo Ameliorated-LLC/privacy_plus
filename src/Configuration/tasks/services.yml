@@ -3,7 +3,7 @@ title: Services
 description: Modification of Windows services
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Configuring services'}
+  - !status: {status: 'Configuring services'}
   - !registryKey:
     path: "HKLM\\System\\CurrentControlSet\\Services\\WdNisDrv"
   - !registryKey:
@@ -159,6 +159,7 @@ actions:
 #    name: "wlidsvc"
 #    operation: delete
   - !run: {exeDir: true, exe: "SERVICE.bat", weight: 20}
+#  - !run: {exeDir: true, exe: 'ISO\SERVICE.bat', weight: 20, oobe: true}
 
     # Block AME hooked services
   - !registryValue: {path: 'HKLM\SYSTEM\ControlSet001\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules', value: 'Block Services', type: REG_SZ, data: 'v2.32|Action=Block|Active=TRUE|Dir=Out|RA42=IntErnet|RA62=IntErnet|App=%SystemRoot%\System32\amehost.exe|Name=Block Services|Desc=Block Certain Services Outbound UDP/TCP Traffic|'}

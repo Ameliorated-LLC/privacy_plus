@@ -3,8 +3,8 @@ title: Registry Edits
 description: Base AME registry edits
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Modifying registry'}
-  
+  - !status: {status: 'Modifying registry'}
+
   # Re-enable blocklist
   - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Control\CI\Config', value: 'VulnerableDriverBlocklistEnable', type: REG_DWORD, data: '1'}
 
@@ -12,6 +12,17 @@ actions:
     exeDir: true
     exe: "REGI.bat"
     weight: 30
+
+#  - !run:
+#    exeDir: true
+#    exe: 'ISO\REGI.bat'
+#    weight: 30
+#    oobe: true
+
+    # Prevents Outlook from getting pinned in 24H2
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableCloudOptimizedContent', type: REG_DWORD, data: '1'}
+
+  - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation', value: 'DependOnService', type: REG_MULTI_SZ, data: 'bowser\0mrxsmb20\0nsi'}
 
   - !registryValue: {path: 'HKCU\Control Panel\UnsupportedHardwareNotificationCache', value: 'SV1', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\Control Panel\UnsupportedHardwareNotificationCache', value: 'SV2', type: REG_DWORD, data: '0'}
@@ -319,6 +330,7 @@ actions:
       
     # Search
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarMode', type: REG_DWORD, data: '0'}
+  - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarModeCache', type: REG_DWORD, data: '1', scope: defaultUser}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'BingSearchEnabled', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'CortanaConsent', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'CortanaInAmbientMode', type: REG_DWORD, data: '0'}
@@ -342,7 +354,7 @@ actions:
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ShowCopilotButton', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Start_IrisRecommendations', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'Start_AccountNotifications', type: REG_DWORD, data: '0'}
-  - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarGlomLevel', type: REG_DWORD, data: '2'}
+  - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarGlomLevel', type: REG_DWORD, data: '1'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarDa', type: REG_DWORD, data: '0'}
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAl', type: REG_DWORD, data: '0'}
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'NavPaneShowAllFolders', type: REG_DWORD, data: '0'}
@@ -353,6 +365,7 @@ actions:
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'ShowTaskViewButton', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer', value: 'EnableAutoTray', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'HideSCAMeetNow', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer', value: 'NoWinBackupNotifications', type: REG_DWORD, data: '1'}
     # W11 Chat item
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarMn', type: REG_DWORD, data: '0'}
 
@@ -457,7 +470,7 @@ actions:
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers', value: '2', type: REG_SZ, data: 'time.windows.com'}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers', value: '3', type: REG_SZ, data: 'time.nist.gov'}
 
-  - !writeStatus: {status: 'Checking users'}
+  - !status: {status: 'Checking users'}
   - !run:
     exeDir: true
     exe: "CONVERT.bat"

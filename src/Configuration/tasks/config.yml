@@ -8,7 +8,9 @@ actions:
   - !run: {exe: 'w32tm', args: '/config /manualpeerlist:pool.ntp.org /syncfromflags:manual /update'}
   - !run: {exe: 'w32tm', args: '/resync'}
 
-  - !writeStatus: {status: 'Cleaning user interface'}
+  - !run: {exe: 'manage-bde', args: '-off C:'}
+
+  - !status: {status: 'Cleaning user interface'}
   - !service:
     name: "WpnService"
     operation: stop
@@ -20,6 +22,17 @@ actions:
 
   - !taskKill: {name: "explorer"}
 
+  - !file:
+    path: "%SYSTEMDRIVE%\\Users\\Public\\Desktop\\Microsoft Edge.lnk"
+  - !file:
+    path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Windows Media Player.lnk"
+  - !file:
+    path: "%WINDIR%\\HelpPane.exe"
+  - !file:
+    path: "%WINDIR%\\SystemApps\\MicrosoftWindows.Client.Core_cw5n1h2txyewy\\SystemSettingsExtensions.dll"
+  - !file:
+    path: "%WINDIR%\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SystemSettingsExtensions.dll"
+
   - !run:
     exeDir: true
     exe: "CLEANUP.bat"
@@ -27,7 +40,7 @@ actions:
     
   - !run: {exe: "explorer.exe", wait: false, runas: currentUser}
 
-  - !writeStatus: {status: 'Configuring permissions', option: "security-enhanced"}
+  - !status: {status: 'Configuring permissions', option: "security-enhanced"}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ConsentPromptBehaviorAdmin', type: REG_DWORD, data: '5', option: "security-enhanced"}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ConsentPromptBehaviorUser', type: REG_DWORD, data: '3', option: "security-enhanced"}
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableInstallerDetection', type: REG_DWORD, data: '1', option: "security-enhanced"}
@@ -43,14 +56,13 @@ actions:
     weight: 10
     option: "security-enhanced"
 
-  - !writeStatus: {status: 'Implementing SFC mitigation', option: "ame-tools"}
+  - !status: {status: 'Implementing SFC mitigation'}
   - !run:
     exeDir: true
     exe: "SFCDEPLOY.bat"
     weight: 5
-    option: "ame-tools"
 
-  - !writeStatus: {status: 'Modifying login screen', option: "ui"}
+  - !status: {status: 'Modifying login screen', option: "ui"}
   - !run:
     exeDir: true
     exe: "LOGIN.bat"

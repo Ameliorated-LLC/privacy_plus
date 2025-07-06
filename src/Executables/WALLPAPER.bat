@@ -62,8 +62,20 @@ if exist "img0.jpg" (
 	takeown /f "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
 	echo icacls "%WINDIR%\Web\Wallpaper\Windows\img0.jpg" /reset
 	icacls "%WINDIR%\Web\Wallpaper\Windows\img0.jpg" /reset
-	echo move /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
-	move /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
+	echo copy /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
+	copy /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Windows\img0.jpg"
+	echo takeown /f "%WINDIR%\Web\4K\Wallpaper\Windows\img0._1920x1200.jpg"
+	takeown /f "%WINDIR%\Web\4K\Wallpaper\Windows\img0_1920x1200.jpg"
+	echo icacls "%WINDIR%\Web\4K\Wallpaper\Windows\img0_1920x1200.jpg" /reset
+	icacls "%WINDIR%\Web\4K\Wallpaper\Windows\img0_1920x1200.jpg" /reset
+	echo copy /y "img0.jpg" "%WINDIR%\Web\4K\Wallpaper\Windows\img0_1920x1200.jpg"
+	copy /y "img0.jpg" "%WINDIR%\Web\4K\Wallpaper\Windows\img0_1920x1200.jpg"
+	echo takeown /f "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg"
+	takeown /f "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg"
+	echo icacls "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg" /reset
+	icacls "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg" /reset
+	echo copy /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg"
+	copy /y "img0.jpg" "%WINDIR%\Web\Wallpaper\Spotlight\img14.jpg"
 )
 
 if not exist "%WINDIR%\Web\Wallpaper\Windows\ame_wallpaper_4K.bmp" set "wallFail=true" & goto lockScreen

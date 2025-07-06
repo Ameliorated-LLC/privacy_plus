@@ -1,7 +1,5 @@
 @echo off
 
-if exist "%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe" exit /b 0
-
 mkdir "%PROGRAMFILES%\UngoogledChromium"
 
 copy /y "UGC\chrlauncher.ini" "%PROGRAMFILES%\UngoogledChromium"
@@ -9,8 +7,15 @@ copy /y "UGC\chrlauncher.exe" "%PROGRAMFILES%\UngoogledChromium"
 copy /y "UGC\chrome.exe" "%PROGRAMFILES%\UngoogledChromium"
 copy /y "UGC\ugc_uninstaller.exe" "%PROGRAMFILES%\UngoogledChromium\Ungoogled Uninstaller.exe"
 
-start "chrlauncher" /b /wait "%PROGRAMFILES%\UngoogledChromium\chrlauncher.exe"
-
+if exist "ugc.7z" (
+	7za.exe x "ugc.7z" -o"%PROGRAMFILES%\UngoogledChromium" -y
+	for /f "usebackq delims=" %%A in (`dir /b /a:d "%PROGRAMFILES%\UngoogledChromium" ^| findstr /c:"chromium-"`) do (
+		echo move /y "%PROGRAMFILES%\UngoogledChromium\%%A" "%PROGRAMFILES%\UngoogledChromium\bin"
+		move /y "%PROGRAMFILES%\UngoogledChromium\%%A" "%PROGRAMFILES%\UngoogledChromium\bin"
+	)
+) else (
+	PowerShell -NoP -C "Start-Process -FilePath '%PROGRAMFILES%\UngoogledChromium\chrlauncher.exe' -WindowStyle Hidden -Wait"
+)
 set "ICON=\"%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe\",0"
 
 @echo on
@@ -56,7 +61,7 @@ reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\DefaultIcon" /ve /t RE
 reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\InstallInfo" /v "HideIconsCommand" /t REG_SZ /d """%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe"" --hide-icons" /f
 reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\InstallInfo" /v "ShowIconsCommand" /t REG_SZ /d """%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe"" --show-icons" /f
 reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\InstallInfo" /v "IconsVisible" /t REG_DWORD /d "1" /f
-reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\shell\open\command" /ve /t REG_SZ /d """%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe"" /f
+reg add "HKLM\SOFTWARE\Clients\StartMenuInternet\Chromium\shell\open\command" /ve /t REG_SZ /d """%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe""" /f
 
 reg add "HKCR\.htm\OpenWithProgids" /v "Chromium" /f
 reg add "HKCR\.html\OpenWithProgids" /v "Chromium" /f
@@ -91,7 +96,7 @@ for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /
 mkdir "%PROGRAMFILES%\UngoogledChromium\Extensions"
 
 copy /y "UGC\Chromium.Web.Store.crx" "%PROGRAMFILES%\UngoogledChromium\Extensions"
-copy /y "uBlock.Origin.crx" "%PROGRAMFILES%\UngoogledChromium\Extensions"
+copy /y "uBOLite.crx" "%PROGRAMFILES%\UngoogledChromium\Extensions"
 
 copy /y "UGC\initial_preferences_ugc" "%PROGRAMFILES%\UngoogledChromium\bin\initial_preferences"
 
@@ -100,10 +105,10 @@ reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome" /f
 reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions" /f
 
 reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ocaahdebbfolfmndjeplogmgcagdmblk" /v "Path" /t REG_SZ /d "%PROGRAMFILES%\UngoogledChromium\Extensions\Chromium.Web.Store.crx" /f
-reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ocaahdebbfolfmndjeplogmgcagdmblk" /v "Version" /t REG_SZ /d "1.5.4.2" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ocaahdebbfolfmndjeplogmgcagdmblk" /v "Version" /t REG_SZ /d "1.5.4.3" /f
 
-reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\cjpalhdlnbpafiamejdnhcphjbkeiagm" /v "Path" /t REG_SZ /d "%PROGRAMFILES%\UngoogledChromium\Extensions\uBlock.Origin.crx" /f
-reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\cjpalhdlnbpafiamejdnhcphjbkeiagm" /v "Version" /t REG_SZ /d "1.57.0" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ecbibdikgcogagiklehmjddmlkipfjbc" /v "Path" /t REG_SZ /d "%PROGRAMFILES%\UngoogledChromium\Extensions\uBOLite.crx" /f
+reg add "HKLM\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\ecbibdikgcogagiklehmjddmlkipfjbc" /v "Version" /t REG_SZ /d "2025.512.1008" /f
 
 schtasks /create /tn "UGC Update" /tr "\"%PROGRAMFILES%\UngoogledChromium\chrlauncher.exe\"" /ru "SYSTEM" /sc ONLOGON /delay "0000:30" /it /rl HIGHEST /f > NUL
 PowerShell -NoP -C "$TaskSet = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries; Set-ScheduledTask -TaskName 'UGC Update' -Settings $TaskSet" > NUL
@@ -117,7 +122,6 @@ for /f "usebackq delims=" %%A in (`dir /b /a:d "%SYSTEMDRIVE%\Users" ^| findstr 
 )
 
 PowerShell -NoP -C "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Chromium.lnk'); $S.TargetPath = '%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe'; $S.Arguments = '--flag-switches-begin --no-default-browser-check --extension-mime-request-handling=always-prompt-for-install --flag-switches-end'; $S.WorkingDirectory = '%PROGRAMFILES%\UngoogledChromium\bin'; $S.IconLocation = '%PROGRAMFILES%\UngoogledChromium\bin\chrome.exe, 0'; $S.Save()"
-PowerShell -NoP -C "$Content = (Get-Content '%~dp0\Layout.xml'); $Content = $Content -replace '%%ALLUSERSPROFILE%%\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk', '%%ALLUSERSPROFILE%%\Microsoft\Windows\Start Menu\Programs\Chromium.lnk' | Set-Content '%~dp0\Layout.xml'"
 
 for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /r /x /c:"HKEY_USERS\\S-.*" /c:"HKEY_USERS\\AME_UserHive_[^_]*"`) do (
 	reg query "HKU\%%A" | findstr /c:"Volatile Environment" /c:"AME_UserHive_" > NUL 2>&1
@@ -131,6 +135,9 @@ for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /
 			)
 	)
 )
+
+copy /y AssociationsUGC.dll "%SYSTEMROOT%\System32\OEMDefaultAssociations.dll"
+
 exit /b 0
 
 :AFISCALL

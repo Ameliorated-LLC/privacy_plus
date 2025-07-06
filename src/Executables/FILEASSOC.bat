@@ -1,4 +1,3 @@
-copy /y "Associations.dll" "%WINDIR%\System32\OEMDefaultAssociations.dll"
 del /q /f "%WINDIR%\System32\OEMDefaultAssociations.xml"
 
 @echo OFF

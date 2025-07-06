@@ -3,6 +3,7 @@ cd Executables
 @if exist "%SYSTEMDRIVE%\Windows\StartMenuLayout.xml" echo del /q /f "%SYSTEMDRIVE%\Windows\StartMenuLayout.xml" & del /q /f "%SYSTEMDRIVE%\Windows\StartMenuLayout.xml"
 
 copy /y "Layout.xml" "%SYSTEMDRIVE%\Windows\StartMenuLayout.xml"
+copy /y "LayoutTaskbar.xml" "%SYSTEMDRIVE%\Windows\TaskbarLayout.xml"
 
 @echo OFF
 for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /r /x /c:"HKEY_USERS\\S-.*" /c:"HKEY_USERS\\AME_UserHive_[^_]*"`) do (
@@ -25,9 +26,15 @@ for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /
 			)
 		)
 )
+
+
 @echo ON
 
+copy /y "LayoutUser.xml" "%SYSTEMDRIVE%\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml"
+
+REM Note: Deprecated on newer versions of Windows 11
 PowerShell -NoP -C "Import-StartLayout -LayoutPath '%SYSTEMDRIVE%\Windows\StartMenuLayout.xml' -MountPath $env:SystemDrive\\"
 
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "StartLayoutFile" /t REG_SZ /d "%SYSTEMDRIVE%\Windows\StartMenuLayout.xml" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "LayoutXMLPath" /t REG_SZ /d "%SYSTEMDRIVE%\Windows\TaskbarLayout.xml" /f

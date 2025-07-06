@@ -6,130 +6,41 @@
         "hide_all_widgets": true,
         "shows_options": 0
     },
-    "extensions": {
-        "settings": {
-            "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
-                "location": 1,
-                "manifest": {
-                    "content_scripts": [
-                        {
-                          "all_frames": true,
-                          "js": [
-                            "/js/vapi.js",
-                            "/js/vapi-client.js",
-                            "/js/contentscript.js"
-                          ],
-                          "match_about_blank": true,
-                          "matches": [
-                            "http://*/*",
-                            "https://*/*"
-                          ],
-                          "run_at": "document_start"
-                        },
-                        {
-                          "all_frames": false,
-                          "js": [
-                            "/js/scriptlets/subscriber.js"
-                          ],
-                          "matches": [
-                            "https://easylist.to/*",
-                            "https://*.fanboy.co.nz/*",
-                            "https://filterlists.com/*",
-                            "https://forums.lanik.us/*",
-                            "https://github.com/*",
-                            "https://*.github.io/*",
-                            "https://*.letsblock.it/*"
-                          ],
-                          "run_at": "document_idle"
-                        }
-                    ],
-                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
-                    "name": "uBlock Origin (Installing...)",
-                    "permissions": [
-                        "contextMenus",
-                        "privacy",
-                        "storage",
-                        "tabs",
-                        "unlimitedStorage",
-                        "webNavigation",
-                        "webRequest",
-                        "webRequestBlocking",
-                        "<all_urls>"
-                    ],
-                    "update_url": "https://clients2.google.com/service/update2/crx",
-                    "version": "0.0",
-                    "manifest_version": 2
-                },
-                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm\\0.0",
-                "state": 1,
-                "granted_permissions": {
-                    "api": [
-                        "contextMenus",
-                        "privacy",
-                        "storage",
-                        "tabs",
-                        "unlimitedStorage",
-                        "webNavigation",
-                        "webRequest",
-                        "webRequestBlocking"
-                    ],
-                    "explicit_host": [
-                        "\u003Call_urls>",
-                        "chrome://favicon/*"
-                    ],
-                    "manifest_permissions":[],
-                    "scriptable_host": [
-                        "http://*/*",
-                        "https://*.fanboy.co.nz/*",
-                        "https://*.github.io/*",
-                        "https://*.letsblock.it/*",
-                        "https://*/*",
-                        "https://easylist.to/*",
-                        "https://filterlists.com/*",
-                        "https://forums.lanik.us/*",
-                        "https://github.com/*"
-                    ]
-                },
-                "incognito": true
-            }
-        }
-    },
-    "default_search_provider_data": {
-        "template_url_data": {
-            "alternate_urls": [],
-            "contextual_search_url": "",
-            "created_by_policy": false,
-            "created_from_play_api": false,
-            "doodle_url": "",
-            "favicon_url": "https://start.duckduckgo.com/favicon.ico",
-            "id": "10",
-            "image_search_branding_label": "",
-            "image_translate_source_language_param_key": "",
-            "image_translate_target_language_param_key": "",
-            "image_translate_url": "",
-            "image_url": "",
-            "image_url_post_params": "",
-            "input_encodings": [],
-            "is_active": 1,
-            "keyword": "start.duckduckgo.com",
-            "logo_url": "",
-            "new_tab_url": "",
-            "originating_url": "",
-            "preconnect_to_search_url": false,
-            "prefetch_likely_navigations": false,
-            "prepopulate_id": 0,
-            "safe_for_autoreplace": false,
-            "search_intent_params": [],
-            "search_url_post_params": "",
-            "short_name": "DuckDuckGo",
-            "side_image_search_param": "",
-            "side_search_param": "",
-            "starter_pack_id": 0,
-            "suggestions_url": "https://start.duckduckgo.com/ac/?q={searchTerms}&type=list",
-            "suggestions_url_post_params": "",
-            "url": "https://start.duckduckgo.com/?q={searchTerms}",
-            "usage_count": 0
-        }
-    }
+    "brave": {
+      "brave_vpn": {
+         "show_button": false
+      },
+      "sidebar": {
+         "hidden_built_in_items": [
+            7,
+            1,
+            2
+         ],
+         "last_used_built_in_item_type": 3
+      },
+      "ai_chat": {
+         "autocomplete_provider_enabled": false,
+         "context_menu_enabled": false,
+         "show_toolbar_button": false
+      },
+      "new_tab_page": {
+         "hide_all_widgets": true,
+         "show_branded_background_image": false,
+         "show_brave_news": false,
+         "show_clock": true
+      },
+      "rewards": {
+         "show_brave_rewards_button_in_location_bar": false
+      },
+      "wallet": {
+         "show_wallet_icon_on_toolbar": false
+      },
+      "omnibox": {
+         "commander_suggestions_enabled": false
+      }
+   },
+   "download": {
+      "prompt_for_download": false
+   }
 }
 

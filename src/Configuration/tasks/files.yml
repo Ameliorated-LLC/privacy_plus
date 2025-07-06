@@ -3,7 +3,7 @@ title: Files
 description: Deletes certain Windows files
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Removing files'}
+  - !status: {status: 'Removing files'}
   - !taskKill:
     name: "explorer"
   - !taskKill:
@@ -130,8 +130,8 @@ actions:
   - !file:
     path: "%windir%\\SoftwareDistribution"
     ignoreErrors: true
-  - !file:
-    path: "%windir%\\System32\\OOBE"
+#  - !file:
+#    path: "%windir%\\System32\\OOBE"
 #  - !file:
 #    path: "%windir%\\System32\\SgrmBroker.exe"
 #  - !file:
@@ -379,14 +379,14 @@ actions:
     path: "%windir%\\System32\\en-US\\slui.exe.mui"
   - !file:
     path: "%windir%\\Prefetch\\SLUI.EXE-724E99D9.pf"
-  - !file:
-    path: "%windir%\\System32\\Startupscan.dll"
-  - !file:
-    path: "%windir%\\SysWOW64\\Startupscan.dll"
-  - !file:
-    path: "%windir%\\System32\\en-US\\Startupscan.dll.mui"
-  - !file:
-    path: "%windir%\\SysWOW64\\en-US\\Startupscan.dll.mui"
+#  - !file:
+#    path: "%windir%\\System32\\Startupscan.dll"
+#  - !file:
+#    path: "%windir%\\SysWOW64\\Startupscan.dll"
+#  - !file:
+#    path: "%windir%\\System32\\en-US\\Startupscan.dll.mui"
+#  - !file:
+#    path: "%windir%\\SysWOW64\\en-US\\Startupscan.dll.mui"
   - !file:
     path: "%windir%\\System32\\StorSvc.dll"
   - !file:

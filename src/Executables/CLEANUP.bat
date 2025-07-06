@@ -1,11 +1,4 @@
-cmd /c "del /q /f "%WINDIR%\HelpPane.exe""
-for /f "usebackq delims=" %%A in (`dir /b "%WINDIR%\SystemApps\*Client.CBS*"`) do (
-	echo del /q /f "%WINDIR%\SystemApps\%%A\SystemSettingsExtensions.dll"
-	del /q /f "%WINDIR%\SystemApps\%%A\SystemSettingsExtensions.dll"
-)
-
-del /q /f "%SYSTEMDRIVE%\Users\Public\Desktop\Microsoft Edge.lnk"
-del /q /f "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Accessories\Windows Media Player.lnk"
+copy /y "AssociationsFirefox.dll" "%SYSTEMROOT%\System32\OEMDefaultAssociations.dll"
 
 for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /r /x /c:"HKEY_USERS\\S-.*" /c:"HKEY_USERS\\AME_UserHive_[^_]*"`) do (
 

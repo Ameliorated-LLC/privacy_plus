@@ -3,7 +3,7 @@ title: APPX
 description: Removal of APPX packages
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Removing APPX packages'}
+  - !status: {status: 'Removing APPX packages'}
   - !appx: {name: '*3DViewer*', type: family}
   - !appx: {name: '*Apprep.Chx*', type: family}
   - !appx: {name: '*AssignedAccessLockApp*', type: family}
@@ -31,6 +31,7 @@ actions:
   - !appx: {name: '*MicrosoftEdge*', type: family}
   - !appx: {name: '*MicrosoftOfficeHub*', type: family}
   - !appx: {name: '*MicrosoftTeams*', type: family}
+  - !appx: {name: '*MSTeams*', type: family}
   - !appx: {name: '*MixedReality*', type: family}
   - !appx: {name: '*OneDrive*', type: family}
   - !appx: {name: '*OneNote*', type: family}

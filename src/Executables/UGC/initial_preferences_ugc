@@ -1,30 +1,24 @@
 {
     "https_only_mode_enabled": true,
-    "skip_first_run_ui" : true,
-    "show_welcome_page" : false,
+    "skip_first_run_ui": true,
+    "show_welcome_page": false,
+    "profile": {
+        "default_content_setting_values": {
+            "javascript_jit": 1,
+            "webgl": 1,
+            "webrtc": 1
+        }
+    },
     "extensions": {
         "settings": {
             "ocaahdebbfolfmndjeplogmgcagdmblk": {
                 "location": 1,
                 "manifest": {
-                    "content_scripts": [
-                        {
-                            "matches": [
-                                "https://chrome.google.com/webstore*",
-                                "https://addons.opera.com/*extensions/details/*",
-                                "https://microsoftedge.microsoft.com/addons/*"
-                            ],
-                            "js": ["scripts/util.js", "scripts/inject.js"],
-                            "run_at": "document_end"
-                        }
-                    ],
-                    "host_permissions": ["https://clients2.google.com/service/*"],
-                    "optional_host_permissions": ["<all_urls>"],
-                    "background": {
-                        "service_worker": "scripts/background.js"
-                    },
-                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqF/d41Q7agjkUzYq8ZGbQr8XW8mmEIMXOnR1uCTnYLL+Dm9Z+LO50xZukOISNy6zFxpI8ts/OGLsm+I2x9+UprUU4/EVdmxuwegFE6NBoEhHoRNYY0gbXZkaU8YY/XwzjVY/k18DDhl5NYPEnF6uq4Oyidg+xtd3W4+iGYczuOLER1Tp5y614zOTphcvFYhvUkCijQ6HT1TtRq/34SlFoRQqo4SFiLriK451xWIcfwiMLIekWrdoQa1v8dqIlMA3r6CKc0QykJpSYbiyormWiZ0hl2HLpkZ85mD9V0eDQ5RCtb6vkybK7INcq4yKQV4YkXhr9NpX9U4re4dlFQjEJQIDAQAB",
+                    "author": "NeverDecaf",
+                    "manifest_version": 3,
                     "name": "Chromium Web Store (Installing...)",
+                    "version": "0.0",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqF/d41Q7agjkUzYq8ZGbQr8XW8mmEIMXOnR1uCTnYLL+Dm9Z+LO50xZukOISNy6zFxpI8ts/OGLsm+I2x9+UprUU4/EVdmxuwegFE6NBoEhHoRNYY0gbXZkaU8YY/XwzjVY/k18DDhl5NYPEnF6uq4Oyidg+xtd3W4+iGYczuOLER1Tp5y614zOTphcvFYhvUkCijQ6HT1TtRq/34SlFoRQqo4SFiLriK451xWIcfwiMLIekWrdoQa1v8dqIlMA3r6CKc0QykJpSYbiyormWiZ0hl2HLpkZ85mD9V0eDQ5RCtb6vkybK7INcq4yKQV4YkXhr9NpX9U4re4dlFQjEJQIDAQAB",
                     "permissions": [
                         "management",
                         "storage",
@@ -32,9 +26,25 @@
                         "contextMenus",
                         "downloads"
                     ],
+                    "host_permissions": ["https://clients2.google.com/service/*"],
+                    "optional_host_permissions": ["<all_urls>"],
+                    "content_scripts": [
+                        {
+                            "matches": [
+                                "https://chrome.google.com/webstore*",
+                                "https://chromewebstore.google.com/*",
+                                "https://addons.opera.com/*extensions/details/*",
+                                "https://microsoftedge.microsoft.com/addons/*"
+                            ],
+                            "js": ["scripts/util.js", "scripts/inject.js"],
+                            "run_at": "document_end"
+                        }
+                    ],
+                    "background": {
+                        "service_worker": "scripts/background.js"
+                    },
                     "update_url": "https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml",
-                    "version": "0.0",
-                    "manifest_version": 3
+                    "homepage_url": "https://github.com/NeverDecaf/chromium-web-store"
                 },
                 "path": "ocaahdebbfolfmndjeplogmgcagdmblk\\0.0",
                 "state": 1,
@@ -51,91 +61,47 @@
                     "scriptable_host": [
                         "https://addons.opera.com/*extensions/details/*",
                         "https://chrome.google.com/webstore*",
+                        "https://chromewebstore.google.com/*",
                         "https://microsoftedge.microsoft.com/addons/*"
                     ]
                 }
             },
-            "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+            "ecbibdikgcogagiklehmjddmlkipfjbc": {
                 "location": 1,
                 "manifest": {
-                    "content_scripts": [
-                        {
-                          "all_frames": true,
-                          "js": [
-                            "/js/vapi.js",
-                            "/js/vapi-client.js",
-                            "/js/contentscript.js"
-                          ],
-                          "match_about_blank": true,
-                          "matches": [
-                            "http://*/*",
-                            "https://*/*"
-                          ],
-                          "run_at": "document_start"
-                        },
-                        {
-                          "all_frames": false,
-                          "js": [
-                            "/js/scriptlets/subscriber.js"
-                          ],
-                          "matches": [
-                            "https://easylist.to/*",
-                            "https://*.fanboy.co.nz/*",
-                            "https://filterlists.com/*",
-                            "https://forums.lanik.us/*",
-                            "https://github.com/*",
-                            "https://*.github.io/*",
-                            "https://*.letsblock.it/*"
-                          ],
-                          "run_at": "document_idle"
-                        }
-                    ],
-                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJNzUNVjS6Q1qe0NRqpmfX/oSJdgauSZNdfeb5RV1Hji21vX0TivpP5gq0fadwmvmVCtUpOaNUopgejiUFm/iKHPs0o3x7hyKk/eX0t2QT3OZGdXkPiYpTEC0f0p86SQaLoA2eHaOG4uCGi7sxLJmAXc6IsxGKVklh7cCoLUgWEMnj8ZNG2Y8UKG3gBdrpES5hk7QyFDMraO79NmSlWRNgoJHX6XRoY66oYThFQad8KL8q3pf3Oe8uBLKywohU0ZrDPViWHIszXoE9HEvPTFAbHZ1umINni4W/YVs+fhqHtzRJcaKJtsTaYy+cholu5mAYeTZqtHf6bcwJ8t9i2afwIDAQAB",
-                    "name": "uBlock Origin (Installing...)",
-                    "permissions": [
-                        "contextMenus",
-                        "privacy",
-                        "storage",
-                        "tabs",
-                        "unlimitedStorage",
-                        "webNavigation",
-                        "webRequest",
-                        "webRequestBlocking",
+                    "author": "Raymond Hill",
+                    "background": {
+                        "service_worker": "/js/background.js",
+                        "type": "module"
+                    },
+                    "host_permissions": [
                         "<all_urls>"
                     ],
-                    "update_url": "https://clients2.google.com/service/update2/crx",
-                    "version": "0.0",
-                    "manifest_version": 2
+                    "manifest_version": 3,
+                    "name": "uBlock Origin Lite (Installing...)",
+                    "permissions": [
+                        "activeTab",
+                        "declarativeNetRequest",
+                        "scripting",
+                        "storage"
+                    ],
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnQjCDDWNzLQWaQYt89zP3htTqmMGO2nI2noL0m7DuOa+htXkqwUNxW1kviANWkNs4x8pGO5cAaF72fZpxpxuF4SreLTWT9v3v5zWqD1iEL/Q8zatTP8/9xLBvP1cBjYQL7do9YQZWEZnU9xjpW7nRNKlGi/CFsXi976NzK+ExWM7g8Nzg1EkdOJbE8uFtzASrXP+V4HGGoVcnEp0rTabK2VvFWcVtPLRKHy8yGeQToeWvLwOEeO5dqcHHhMERUii28i5cOWfgGI49reqVh/l8+jaHnC90iI/Dmhu/zb+v/S7rkjoj6FX28fhZ0vrFc5nVgETCRYZuG3MNHWKCfZmrQIDAQAB",
+                    "version": "0.0"
                 },
-                "path": "cjpalhdlnbpafiamejdnhcphjbkeiagm\\0.0",
+                "path": "ecbibdikgcogagiklehmjddmlkipfjbc\\0.0",
                 "state": 1,
                 "granted_permissions": {
-                    "api": [
-                        "contextMenus",
-                        "privacy",
-                        "storage",
-                        "tabs",
-                        "unlimitedStorage",
-                        "webNavigation",
-                        "webRequest",
-                        "webRequestBlocking"
-                    ],
-                    "explicit_host": [
-                        "\u003Call_urls>",
-                        "chrome://favicon/*"
-                    ],
-                    "manifest_permissions":[],
-                    "scriptable_host": [
-                        "http://*/*",
-                        "https://*.fanboy.co.nz/*",
-                        "https://*.github.io/*",
-                        "https://*.letsblock.it/*",
-                        "https://*/*",
-                        "https://easylist.to/*",
-                        "https://filterlists.com/*",
-                        "https://forums.lanik.us/*",
-                        "https://github.com/*"
-                    ]
+                  "api": [
+                    "activeTab",
+                    "storage",
+                    "declarativeNetRequest",
+                    "scripting"
+                  ],
+                  "explicit_host": [
+                    "<all_urls>"
+                  ],
+                  "manifest_permissions": [],
+                  "scriptable_host": []
                 },
                 "incognito": true
             }
@@ -179,4 +145,3 @@
         }
     }
 }
-

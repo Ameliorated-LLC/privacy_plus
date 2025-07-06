@@ -1,8 +1,8 @@
 @echo OFF
 
-if exist "%ProgramFiles%\LibreWolf\librewolf.exe" call :setAssociations & exit /b 0
+:: if exist "%ProgramFiles%\LibreWolf\librewolf.exe" call :setAssociations & exit /b 0
 
-PowerShell -NoP -C "Start-Process '%ProgramData%\chocolatey\bin\choco.exe' -ArgumentList 'install','-y','--allow-empty-checksums','librewolf' -NoNewWindow -Wait"
+:: PowerShell -NoP -C "Start-Process '%ProgramData%\chocolatey\bin\choco.exe' -ArgumentList 'install','-y','--allow-empty-checksums','librewolf' -NoNewWindow -Wait"
 
 call :setAssociations
 
@@ -21,8 +21,10 @@ for /f "usebackq delims=" %%A in (`dir /b /a:d "%SYSTEMDRIVE%\Users" ^| findstr 
 )
 if not exist "%ProgramFiles%\LibreWolf\librewolf.exe" exit /b 0
 
+copy /y "AssociationsLibreWolf.dll" "%SYSTEMROOT%\System32\OEMDefaultAssociations.dll"
+
 PowerShell -NoP -C "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%ProgramData%\\Microsoft\Windows\Start Menu\Programs\LibreWolf.lnk'); $S.TargetPath = '%ProgramFiles%\LibreWolf\librewolf.exe'; $S.WorkingDirectory = '%ProgramFiles%\LibreWolf'; $S.Save()"
-PowerShell -NoP -C "$Content = (Get-Content '%~dp0\Layout.xml'); $Content = $Content -replace '%%ALLUSERSPROFILE%%\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk', '%%ALLUSERSPROFILE%%\\Microsoft\\Windows\\Start Menu\\Programs\\LibreWolf.lnk' | Set-Content '%~dp0\Layout.xml'"
+REM PowerShell -NoP -C "$Content = (Get-Content '%~dp0\Layout.xml'); $Content = $Content -replace '%%ALLUSERSPROFILE%%\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk', '%%ALLUSERSPROFILE%%\\Microsoft\\Windows\\Start Menu\\Programs\\LibreWolf.lnk' | Set-Content '%~dp0\Layout.xml'"
 
 for /f "usebackq tokens=2 delims=\" %%A in (`reg query "HKEY_USERS" ^| findstr /r /x /c:"HKEY_USERS\\S-.*" /c:"HKEY_USERS\\AME_UserHive_[^_]*"`) do (
 	reg query "HKU\%%A" | findstr /c:"Volatile Environment" /c:"AME_UserHive_" > NUL 2>&1
