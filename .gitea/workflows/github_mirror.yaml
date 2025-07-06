@@ -1,0 +1,23 @@
+name: GitHub Mirror
+
+on:
+  push:
+    branches:
+      - public
+
+jobs:
+  mirror_to_github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Mirror to GitHub
+        env:
+          GITHUBTOKEN: ${{ secrets.GITHUBTOKEN }}
+        run: |
+          git checkout public
+          git reset --hard origin/public
+          git push --force --tags https://${GITHUBTOKEN}@github.com/Ameliorated-LLC/privacy_plus public:public
