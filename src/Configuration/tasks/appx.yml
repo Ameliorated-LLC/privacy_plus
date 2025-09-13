@@ -69,7 +69,8 @@ actions:
   - !appx: {name: '*YourPhone*', type: family}
   - !appx: {name: '*Zune*', type: family}
   - !appx: {name: '*MicrosoftFamily*', type: family}
-  - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family}
+  - !appx: {name: '*Microsoft.StartExperiencesApp*', type: family}
+  - !appx: {name: '*Edge.GameAssist*', type: family}
 
   - !appx: {name: '*Global.IrisService*', type: app}
   - !appx: {name: '*Global.Accounts*', type: app}
