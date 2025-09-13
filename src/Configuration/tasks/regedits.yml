@@ -311,6 +311,9 @@ actions:
     # Hide 'Copilot' taskbar option from Settings
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot', value: 'TurnOffWindowsCopilot', type: REG_DWORD, data: '1'}
       
+    # Disable Copilot in Notepad
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\WindowsNotepad', value: 'DisableAIFeatures', type: REG_DWORD, data: '1'}
+
     # Disable opening GameBar when pressing the XBOX button on an XBOX controller
   - !registryValue: {path: 'HKCU\Software\Microsoft\GameBar', value: 'UseNexusForGameBarEnabled', type: REG_DWORD, data: '0'}
     # Disable opening GameBar when connecting XBOX controller
