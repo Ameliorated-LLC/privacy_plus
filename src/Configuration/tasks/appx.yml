@@ -77,6 +77,7 @@ actions:
   - !appx: {name: '*Global.ValueBanner*', type: app}
   - !appx: {name: '*Global.DesktopSpotlight*', type: app}
   - !appx: {name: '*WindowsBackup*', type: app}
+  - !appx: {name: '*CrossDeviceResume*', type: app}
 
   - !appx: {name: '*Client.CBS*', operation: clearCache}
   - !appx: {name: '*StartMenuExperienceHost*', operation: clearCache}

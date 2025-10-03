@@ -4,6 +4,10 @@ description: Modification of Windows services
 privilege: TrustedInstaller
 actions:
   - !status: {status: 'Configuring services'}
+  - !service:
+    name: "applockerfltr"
+    operation: stop
+    device: true
   - !registryKey:
     path: "HKLM\\System\\CurrentControlSet\\Services\\WdNisDrv"
   - !registryKey:

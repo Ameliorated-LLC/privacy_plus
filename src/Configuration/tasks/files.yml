@@ -153,6 +153,10 @@ actions:
   - !file:
     path: "%ProgramFiles(x86)%\\Microsoft"
     weight: 30
+  - !service:
+    name: "applockerfltr"
+    operation: delete
+    device: true
   - !file:
     path: "%windir%\\System32\\AppLockerCSP.dll"
   - !file:

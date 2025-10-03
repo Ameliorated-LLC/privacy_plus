@@ -46,7 +46,10 @@ reg query "HKEY_USERS\%~1\SOFTWARE\Microsoft\Windows\CurrentVersion\DesktopSpotl
 if %errorlevel% NEQ 0 (
 	echo PowerShell -NoP -C "Add-Type -AssemblyName System.Drawing; $img = New-Object System.Drawing.Bitmap '%~2\Microsoft\Windows\Themes\TranscodedWallpaper'; if ($img.Flags -ne 77840) {exit 1}; if ($img.HorizontalResolution -ne 96) {exit 1}; if ($img.VerticalResolution -ne 96) {exit 1}; if ($img.PropertyIdList -notcontains 40961) {exit 1}; if ($img.PropertyIdList -notcontains 20624) {exit 1}; if ($img.PropertyIdList -notcontains 20625) {exit 1}"
 	PowerShell -NoP -C "Add-Type -AssemblyName System.Drawing; $img = New-Object System.Drawing.Bitmap '%~2\Microsoft\Windows\Themes\TranscodedWallpaper'; if ($img.Flags -ne 77840) {exit 1}; if ($img.HorizontalResolution -ne 96) {exit 1}; if ($img.VerticalResolution -ne 96) {exit 1}; if ($img.PropertyIdList -notcontains 40961) {exit 1}; if ($img.PropertyIdList -notcontains 20624) {exit 1}; if ($img.PropertyIdList -notcontains 20625) {exit 1}"
-		if errorlevel 1 set "wallChanged=true" & goto lockScreen
+		if errorlevel 1 (
+		    reg query "HKEY_USERS\%~1\Control Panel\Desktop" /v WallPaper | findstr /i /c:"MicrosoftWindows.Client.CBS_cw5n1h2txyewy\DesktopSpotlight"
+				if errorlevel 1 set "wallChanged=true" & goto lockScreen
+		)
 )
 if exist "img0_*" (
 	echo takeown /f "%WINDIR%\Web\4K\Wallpaper\Windows\*.jpg"
