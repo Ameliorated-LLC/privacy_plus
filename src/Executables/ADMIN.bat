@@ -1,3 +1,9 @@
+PowerShell -NoP -ExecutionPolicy Bypass -File ADMIN.ps1
+
+exit /b 0
+
+REM The following is hacky and doesn't work with all locales. For example, the "Administrators" group is named "Administratoren" with a German locale/ISO
+
 net user "Administrator" /active:yes
 net user "Järjestelmänvalvoja" /active:yes
 net user "Administrateur" /active:yes
