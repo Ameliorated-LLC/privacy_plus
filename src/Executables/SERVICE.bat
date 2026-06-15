@@ -12,6 +12,8 @@ if not exist "%SystemRoot%\System32\amehost.exe" (
     exit /b 1
 )
 
+REM Communicates with login.live.com even when login is not initiated
+reg add "HKLM\System\CurrentControlSet\Services\wlidsvc" /v "ImagePath" /t REG_EXPAND_SZ /d "%%SystemRoot%%\System32\amehost.exe -k netsvcs -p" /f
 REM Occasionally communicates with Microsoft servers
 reg add "HKLM\System\CurrentControlSet\Services\CryptSvc" /v "ImagePath" /t REG_EXPAND_SZ /d "%%SystemRoot%%\System32\amehost.exe -k NetworkService -p" /f
 REM Communicates with inference-app-gateway.eastus2.cloudapp.azure.com upon new user creation
