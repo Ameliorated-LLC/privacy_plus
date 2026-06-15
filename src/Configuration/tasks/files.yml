@@ -153,6 +153,15 @@ actions:
   - !file:
     path: "%ProgramFiles(x86)%\\Microsoft"
     weight: 30
+  - !file:
+    path: "%windir%\\System32\\drivers\\UCPD.sys"
+  - !service:
+    name: "UCPD"
+    operation: delete
+    device: true
+  - !scheduledTask:
+    path: "\\Microsoft\\Windows\\AppxDeploymentClient\\UCPD velocity"
+    operation: delete
   - !service:
     name: "applockerfltr"
     operation: delete
