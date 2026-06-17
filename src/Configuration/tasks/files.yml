@@ -62,8 +62,8 @@ actions:
     name: "OneDrive"
   - !taskKill:
     name: "msiexec"
-#  - !file:
-#    path: "%windir%\\System32\\wlidsvc.dll"
+  - !file:
+    path: "%windir%\\System32\\wlidsvc.dll"
   - !file:
     path: "%windir%\\System32\\WpcDesktopMonSvc.dll"
   - !file:

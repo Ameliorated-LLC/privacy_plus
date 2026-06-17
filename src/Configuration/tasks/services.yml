@@ -159,9 +159,9 @@ actions:
   - !service: {name: 'BITS', operation: change, startup: 3}
 
     # Breaks APPX installation sometimes
-#  - !service:
-#    name: "wlidsvc"
-#    operation: delete
+  - !service:
+    name: "wlidsvc"
+    operation: delete
   - !run: {exeDir: true, exe: "SERVICE.bat", weight: 20}
 #  - !run: {exeDir: true, exe: 'ISO\SERVICE.bat', weight: 20, oobe: true}
 
