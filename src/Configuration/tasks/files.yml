@@ -215,24 +215,24 @@ actions:
     path: "%windir%\\System32\\ClipUp.exe"
   - !file:
     path: "%windir%\\System32\\DeliveryOptimizationMIProv.mof"
-  - !file:
-    path: "%windir%\\PolicyDefinitions\\DeliveryOptimization.admx"
+  #- !file:
+  #  path: "%windir%\\PolicyDefinitions\\DeliveryOptimization.admx"
   - !file:
     path: "%windir%\\System32\\DeliveryOptimizationMIProvUninstall.mof"
-  - !file:
-    path: "%windir%\\PolicyDefinitions\\en-US\\DeliveryOptimization.adml"
-  - !file:
-    path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimization.psd1"
-  - !file:
-    path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimization.psd1"
-  - !file:
-    path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationStatus.psm1"
-  - !file:
-    path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationStatus.psm1"
-  - !file:
-    path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationVerboseLogs.psm1"
-  - !file:
-    path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationVerboseLogs.psm1"
+  #- !file:
+  #  path: "%windir%\\PolicyDefinitions\\en-US\\DeliveryOptimization.adml"
+  #- !file:
+  #  path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimization.psd1"
+  #- !file:
+  #  path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimization.psd1"
+  #- !file:
+  #  path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationStatus.psm1"
+  #- !file:
+  #  path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationStatus.psm1"
+  #- !file:
+  #  path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationVerboseLogs.psm1"
+  #- !file:
+  #  path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimizationVerboseLogs.psm1"
   - !file:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\State\\migration.dat"
   - !taskKill:
@@ -249,10 +249,10 @@ actions:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\State\\dosvcState.dat.LOG1"
   - !file:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\State\\dosvcState.dat.LOG2"
-  - !file:
-    path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\Microsoft.Windows.DeliveryOptimization.AdminCommands.dll"
-  - !file:
-    path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\Microsoft.Windows.DeliveryOptimization.AdminCommands.dll"
+  #- !file:
+  #  path: "%windir%\\System32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\Microsoft.Windows.DeliveryOptimization.AdminCommands.dll"
+  #- !file:
+  #  path: "%windir%\\SysWOW64\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\Microsoft.Windows.DeliveryOptimization.AdminCommands.dll"
   - !file:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\Logs\\dosvc.20201119_074736_959.etl"
   - !file:
