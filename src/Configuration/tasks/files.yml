@@ -675,3 +675,13 @@ actions:
     path: "%windir%\\System32\\wuaueng.dll"
   - !file:
     path: "%windir%\\System32\\MRT.exe"
+  - !file:
+    path: "%windir%\\System32\\Microsoft-Edge-WebView"
+  - !file:
+    path: "%windir%\\WinSxS\\amd64_microsoft-edge*"
+  - !file:
+    path: "%windir%\\WinSxS\\amd64_microsoft-windows-onedrive*"
+  - !file:
+    path: "%windir%\\WinSxS\\amd64_windows-defender*"
+  - !file:
+    path: "%windir%\\WinSxS\\amd64_windows-senseclient*"
