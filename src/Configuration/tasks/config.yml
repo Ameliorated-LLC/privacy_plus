@@ -65,6 +65,6 @@ actions:
     exeDir: true
     exe: "LOGIN.bat"
   
-  - !status: {status: 'Compacting system component store'}
+  - !status: {status: 'Compressing'}
   - !powerShell: {exe: "DISM.exe", args: "/Online /Set-ReservedStorageState /State:Disabled"}
   - !run: {exe: "compact.exe", args: "/CompactOS:always"}
