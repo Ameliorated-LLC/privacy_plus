@@ -66,5 +66,5 @@ actions:
     exe: "LOGIN.bat"
   
   - !status: {status: 'Compressing'}
-  - !powerShell: {exe: "DISM.exe", args: "/Online /Set-ReservedStorageState /State:Disabled"}
+  - !run: {exe: "DISM.exe", args: "/Online /Set-ReservedStorageState /State:Disabled"}
   - !run: {exe: "compact.exe", args: "/CompactOS:always"}
