@@ -5,7 +5,7 @@ privilege: TrustedInstaller
 actions:
   - !status: {status: 'Removing APPX packages'}
   - !appx: {name: '*3DViewer*', type: family}
-  - !appx: {name: '*ApplicationCompatbilityEnhancements*', type: family}
+  - !appx: {name: '*ApplicationCompatibilityEnhancements*', type: family}
   - !appx: {name: '*Apprep.Chx*', type: family}
   - !appx: {name: '*AssignedAccessLockApp*', type: family}
   - !appx: {name: '*AugLoop.CBS*', type: family}
