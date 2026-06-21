@@ -25,8 +25,6 @@ actions:
   - !file:
     path: "%SYSTEMDRIVE%\\Users\\Public\\Desktop\\Microsoft Edge.lnk"
   - !file:
-    path: "%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Windows Media Player.lnk"
-  - !file:
     path: "%WINDIR%\\HelpPane.exe"
   - !file:
     path: "%WINDIR%\\SystemApps\\MicrosoftWindows.Client.Core_cw5n1h2txyewy\\SystemSettingsExtensions.dll"
@@ -66,3 +64,6 @@ actions:
   - !run:
     exeDir: true
     exe: "LOGIN.bat"
+  
+  - !status: {status: 'Compacting system component store'}
+  - !run: {exe: "compact.exe", args: "/CompactOS:always"}

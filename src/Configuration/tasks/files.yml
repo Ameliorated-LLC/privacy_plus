@@ -87,10 +87,6 @@ actions:
   - !file:
     path: "%windir%\\System32\\devicecensus.exe"
   - !file:
-    path: "%ProgramFiles(x86)%\\Windows Media Player"
-  - !file:
-    path: "%ProgramW6432%\\Windows Media Player"
-  - !file:
     path: "%ProgramFiles(x86)%\\Windows Mail"
   - !file:
     path: "%ProgramW6432%\\Windows Mail"
@@ -675,3 +671,5 @@ actions:
     path: "%windir%\\System32\\wuaueng.dll"
   - !file:
     path: "%windir%\\System32\\MRT.exe"
+  - !file:
+    path: "%windir%\\System32\\Microsoft-Edge-WebView"
