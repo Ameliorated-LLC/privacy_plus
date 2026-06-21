@@ -335,12 +335,12 @@ actions:
     path: "%windir%\\System32\\Tasks\\Microsoft\\Windows\\Feedback\\Siuf\\DmClientOnScenarioDownload"
   - !file:
     path: "%windir%\\System32\\omadmclient.exe"
-  - !file:
-    path: "%windir%\\System32\\dosvc.dll"
-  - !file:
-    path: "%windir%\\System32\\en-US\\dosvc.dll.mui"
-  - !file:
-    path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization"
+  #- !file:
+  #  path: "%windir%\\System32\\dosvc.dll"
+  #- !file:
+  #  path: "%windir%\\System32\\en-US\\dosvc.dll.mui"
+  #- !file:
+  #  path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization"
   - !file:
     path: "%windir%\\PolicyDefinitions\\EnhancedStorage.admx"
   - !file:
