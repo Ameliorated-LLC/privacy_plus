@@ -7,22 +7,22 @@ actions:
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Taskband', value: 'Favorites', type: REG_BINARY, data: '00A40100003A001F80C827341F105C1042AA032EE45287D668260001002600EFBE120000001A1E97454EEFD801757130704EEFD8015EB737704EEFD801140056003100000000006355693411005461736B42617200400009000400EFBE63556934635569342E0000009D8A0100000001000000000000000000000000000000A29F33005400610073006B00420061007200000016001201320097010000A754662A200046494C4545587E312E4C4E4B00007C0009000400EFBE63556934635569342E0000009E8A0100000001000000000000000000520000000000A413A200460069006C00650020004500780070006C006F007200650072002E006C006E006B00000040007300680065006C006C00330032002E0064006C006C002C002D003200320030003600370000001C00120000002B00EFBE22283A704EEFD8011C00420000001D00EFBE02004D006900630072006F0073006F00660074002E00570069006E0064006F00770073002E004500780070006C006F0072006500720000001C00260000001E00EFBE0200530079007300740065006D00500069006E006E006500640000001C000000FF'}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Taskband', value: 'FavoritesResolve', type: REG_BINARY, data: '330300004C0000000114020000000000C0000000000000468300800020000000E7E332704EEFD80122283A704EEFD8015CF4E1FBD161D801970100000000000001000000000000000000000000000000A0013A001F80C827341F105C1042AA032EE45287D668260001002600EFBE120000001A1E97454EEFD801757130704EEFD8015EB737704EEFD801140056003100000000006355693411005461736B42617200400009000400EFBE63556934635569342E0000009D8A0100000001000000000000000000000000000000A29F33005400610073006B00420061007200000016000E01320097010000A754662A200046494C4545587E312E4C4E4B00007C0009000400EFBE63556934635569342E0000009E8A0100000001000000000000000000520000000000A413A200460069006C00650020004500780070006C006F007200650072002E006C006E006B00000040007300680065006C006C00330032002E0064006C006C002C002D003200320030003600370000001C00220000001E00EFBE02005500730065007200500069006E006E006500640000001C00120000002B00EFBE22283A704EEFD8011C00420000001D00EFBE02004D006900630072006F0073006F00660074002E00570069006E0064006F00770073002E004500780070006C006F0072006500720000001C0000009C0000001C000000010000001C0000002D000000000000009B000000110000000300000013EBC8041000000000433A5C55736572735C4D634E696E5C417070446174615C526F616D696E675C4D6963726F736F66745C496E7465726E6574204578706C6F7265725C517569636B204C61756E63685C557365722050696E6E65645C5461736B4261725C46696C65204578706C6F7265722E6C6E6B000060000000030000A058000000000000006465736B746F702D666A63716F626D00A84D9F7C73D4F344BF15FAA23DFD8B4733F18E66405BED11AA54000C29341E2EA84D9F7C73D4F344BF15FAA23DFD8B4733F18E66405BED11AA54000C29341E2E45000000090000A03900000031535053B1166D44AD8D7048A748402EA43D788C1D0000006800000000480000009B7B87BF89DF6547B6A80DC335F1C9BF000000000000000000000000'}
 
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WorkFolders-Client -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WCF-Services45 -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-PortSharing45 -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName MediaPlayback -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName SmbDirect -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName Windows-Defender-Default-Definitions -All"}
-  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName NetFx4-AdvSrvs -All"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WorkFolders-Client"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WCF-Services45"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-PortSharing45"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName MediaPlayback"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName SmbDirect"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName Windows-Defender-Default-Definitions"}
+  - !powerShell: {command: "Disable-WindowsOptionalFeature -Online -FeatureName NetFx4-AdvSrvs"}
 
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name App.StepsRecorder"}
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name MathRecognizer"}
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name Media.WindowsMediaPlayer"}
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name Microsoft.Windows.PowerShell.ISE"}
-  - !powerShell: {command: "Remove-WindowsCapability -Online -Name Microsoft.Windows.Sense.Client"}
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name OpenCoreUAP.OneSync"}
   - !powerShell: {command: "Remove-WindowsCapability -Online -Name VBSCRIPT"}
+  - !powerShell: {command: "Remove-WindowsCapability -Online -Name Browser.InternetExplorer"}
 
     # ---------- Windows Defender
   - !status: {status: 'Removing Windows Defender'}
@@ -63,8 +63,6 @@ actions:
   - !scheduledTask:
     path: "\\Microsoft\\Windows\\Windows Defender\\Windows Defender Verification"
     operation: delete
-
-  - !systemPackage: {name: 'Windows-Defender*', arch: all, language: '*'}
 
     # ---------- Microsoft Edge
   - !status: {status: 'Removing Microsoft Edge'}
@@ -109,8 +107,6 @@ actions:
   - !registryKey: {path: 'HKCR\WOW6432Node\CLSID\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
   - !registryKey: {path: 'HKCR\ie_to_edge_bho.IEToEdgeBHO'}
   - !registryKey: {path: 'HKCR\ie_to_edge_bho.IEToEdgeBHO.1'}
-
-  - !systemPackage: {name: 'Microsoft-Edge*', arch: all, language: '*'}
 
     # Internet Explorer
   - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\EnterpriseMode', value: 'MSEdgePath', operation: delete}
@@ -504,6 +500,3 @@ actions:
   - !registryKey: {path: 'HKCR\ms-office-ai', operation: delete}
   - !registryKey: {path: 'HKCR\ms-copilot', operation: delete}
   - !registryKey: {path: 'HKCR\ms-clicktodo', operation: delete}
-
-  - !systemPackage: {name: 'Windows-Sense*', arch: all, language: '*'}
-  - !systemPackage: {name: 'Microsoft-Windows-OneDrive*', arch: all, language: '*'}
