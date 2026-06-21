@@ -314,6 +314,9 @@ actions:
     # Disable Copilot in Notepad
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\WindowsNotepad', value: 'DisableAIFeatures', type: REG_DWORD, data: '1'}
 
+  # Restore old Notepad
+  - !registryValue: {path: 'HKLM\SOFTWARE\Classes\Applications\notepad.exe', value: 'NoOpenWith', operation: delete}
+
     # Disable opening GameBar when pressing the XBOX button on an XBOX controller
   - !registryValue: {path: 'HKCU\Software\Microsoft\GameBar', value: 'UseNexusForGameBarEnabled', type: REG_DWORD, data: '0'}
     # Disable opening GameBar when connecting XBOX controller
