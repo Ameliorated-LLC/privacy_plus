@@ -4,6 +4,7 @@ description: Custom AME configuration
 privilege: Admin
 actions:
   - !task: {path: 'tasks\regedits.yml'}
+  - !task: {path: 'tasks\office.yml'}
   - !task: {path: 'tasks\appx.yml'}
   - !task: {path: 'tasks\services.yml'}
   - !task: {path: 'tasks\components.yml'}
