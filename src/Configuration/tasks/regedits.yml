@@ -303,6 +303,36 @@ actions:
   - !registryKey: {path: 'HKCU\SOFTWARE\Microsoft\Office\Common\Security', operation: add}
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Office\Common\Security', value: 'DisableAllActiveX', type: REG_DWORD, data: '1'}
 
+  # Disable Visual Studio telemetry
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback', value: 'ProductFeedbackDisabled', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback', value: 'SurveysDisabled', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback', value: 'DisableFeedbackDialog', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback', value: 'DisableEmailInput', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback', value: 'DisableScreenshotCapture', type: REG_DWORD, data: '1'}
+  
+  - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Setup', value: 'BackgroundDownloadDisabled', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VisualStudio\Setup', value: 'BackgroundDownloadDisabled', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VisualStudio\Setup', value: 'DisableBackgroundDownloads', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VisualStudio\Setup', value: 'DisableAutomaticUpdates', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\Setup', value: 'BackgroundDownloadDisabled', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\Setup', value: 'DisableBackgroundDownloads', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\Setup', value: 'DisableAutomaticUpdates', type: REG_DWORD, data: '1'}
+  
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VSCommon\14.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VSCommon\15.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VSCommon\16.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VSCommon\17.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\VSCommon\18.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VSCommon\14.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VSCommon\15.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VSCommon\16.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VSCommon\17.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\VSCommon\18.0\SQM', value: 'OptIn', type: REG_DWORD, data: '0'}
+  
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\VisualStudio\Telemetry', value: 'TurnOffSwitch', type: REG_DWORD, data: '1'}
+
     # Turns off Windows blocking installation of files downloaded from the internet
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments', value: 'SaveZoneInformation', type: REG_DWORD, data: '1'}
       
