@@ -483,3 +483,16 @@ actions:
   - !registryKey: {path: 'HKCR\ms-office-ai', operation: delete}
   - !registryKey: {path: 'HKCR\ms-copilot', operation: delete}
   - !registryKey: {path: 'HKCR\ms-clicktodo', operation: delete}
+
+  # Windows Search
+  - !service:
+    name: "WSearch"
+    operation: delete
+  - !file: {path: '%windir%\\System32\\SearchIndexer.exe'}
+  - !file: {path: '%windir%\\System32\\SearchProtocolHost.exe'}
+  - !file: {path: '%windir%\\System32\\SearchFilterHost.exe'}
+  - !file: {path: '%windir%\\SysWOW64\\SearchProtocolHost.exe'}
+  - !file: {path: '%ProgramData%\\Microsoft\\Search'}
+  - !scheduledTask:
+    path: "\\Microsoft\\Windows\\Shell\\IndexerAutomaticMaintenance"
+    operation: delete
