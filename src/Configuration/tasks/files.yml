@@ -238,6 +238,9 @@ actions:
   - !taskKill:
     name: "LogonUI"
     ignoreErrors: true
+
+  - !service: {name: 'DoSvc', operation: change, startup: 4}
+  - !service: {name: 'DoSvc', operation: stop}
   - !file:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\State\\dosvcState.dat"
     ignoreErrors: true
@@ -279,6 +282,8 @@ actions:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\Logs\\domgmt.20210401_011537_705.etl"
   - !file:
     path: "%windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization\\Logs\\domgmt.20210424_232442_384.etl"
+  - !service: {name: 'DoSvc', operation: change, startup: 3}
+
   - !file:
     path: "%windir%\\System32\\DeviceCensus.exe"
   - !file:
