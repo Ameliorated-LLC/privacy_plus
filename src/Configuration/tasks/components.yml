@@ -493,8 +493,6 @@ actions:
   - !file: {path: '%windir%\\System32\\SearchFilterHost.exe'}
   - !file: {path: '%windir%\\SysWOW64\\SearchProtocolHost.exe'}
   - !file: {path: '%ProgramData%\\Microsoft\\Search'}
-  - !registrykey: {path: 'HKLM\SOFTWARE\Microsoft\Windows Search', operation: delete}
-  - !registrykey: {path: 'HKLM\SOFTWARE\Microsoft\Windows Search', operation: delete}
   - !scheduledTask:
     path: "\\Microsoft\\Windows\\Shell\\IndexerAutomaticMaintenance"
     operation: delete
