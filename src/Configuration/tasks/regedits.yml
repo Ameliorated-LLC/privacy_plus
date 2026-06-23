@@ -19,6 +19,9 @@ actions:
 #    weight: 30
 #    oobe: true
 
+  # Prevent device encryption with BitLocker
+  - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Control\BitLocker', value: 'PreventDeviceEncryption', type: REG_DWORD, data: '1'}
+
     # Prevents Outlook from getting pinned in 24H2
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent', value: 'DisableCloudOptimizedContent', type: REG_DWORD, data: '1'}
 
@@ -330,7 +333,10 @@ actions:
       
     # Disable Storage Sense
   - !registryKey: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense', operation: add}
-      
+  
+  # Disable WinGet msstore source
+  - !registryValue: {path: 'HKLM\Software\Policies\Microsoft\Windows\AppInstaller', value: 'EnableMicrosoftStoreSource', type: REG_DWORD, data: '0'}
+
     # Search
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarMode', type: REG_DWORD, data: '0'}
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search', value: 'SearchboxTaskbarModeCache', type: REG_DWORD, data: '1', scope: defaultUser}
@@ -361,6 +367,9 @@ actions:
   - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarDa', type: REG_DWORD, data: '0'}
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarAl', type: REG_DWORD, data: '0'}
   - !registryValue: {option: "ui", path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'NavPaneShowAllFolders', type: REG_DWORD, data: '0'}
+
+  # Enable Long Paths
+  - !registryValue: {path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem', value: 'LongPathsEnabled', type: REG_DWORD, data: '1'}
 
     # Taskbar
 #  - !registryValue: {path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer', value: 'DisableNotificationCenter', type: REG_DWORD, data: '1'}

@@ -37,7 +37,11 @@ actions:
     exeDir: true
     exe: "CLEANUP.bat"
     weight: 30
-    
+  
+  # Disable telemetry for PowerShell 7
+  - !powerShell: {command: 'setx POWERSHELL_TELEMETRY_OPTOUT "1" /m'}
+  - !powerShell: {command: 'setx POWERSHELL_UPDATECHECK "Off" /m'}
+
   - !run: {exe: "explorer.exe", wait: false, runas: currentUser}
 
   - !status: {status: 'Configuring permissions', option: "security-enhanced"}
