@@ -86,9 +86,10 @@ actions:
   - !service:
     name: "BITS"
     operation: stop
-  - !service:
-    name: "DoSvc"
-    operation: delete
+  # Breaks certain installation of APPX packages when removed/disabled
+  #- !service:
+  #  name: "DoSvc"
+  #  operation: delete
   - !service:
     name: "iphlpsvc"
     operation: stop
