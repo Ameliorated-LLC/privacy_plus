@@ -5,8 +5,11 @@ privilege: TrustedInstaller
 actions:
   - !status: {status: 'Removing APPX packages'}
   - !appx: {name: '*3DViewer*', type: family}
+  - !appx: {name: '*ApplicationCompatibilityEnhancements*', type: family}
+  - !appx: {name: '*AIFabric.CBS*', type: family}
   - !appx: {name: '*Apprep.Chx*', type: family}
   - !appx: {name: '*AssignedAccessLockApp*', type: family}
+  - !appx: {name: '*AugLoop.CBS*', type: family}
   - !appx: {name: '*Bing*', type: family}
   - !appx: {name: '*CamoStudio*', type: family}
   - !appx: {name: '*Client.WebExperience*', type: family}
@@ -15,6 +18,7 @@ actions:
   - !appx: {name: '*CommsPhone*', type: family}
   - !appx: {name: '*ConnectivityStore*', type: family}
   - !appx: {name: '*ContentDeliveryManager*', type: family}
+  - !appx: {name: '*CrossDevice*', type: family}
   - !appx: {name: '*Disney*', type: family}
   - !appx: {name: '*FeedbackHub*', type: family}
   - !appx: {name: '*GamingApp*', type: family}
@@ -51,8 +55,11 @@ actions:
   - !appx: {name: '*Sticky*', type: family}
   - !appx: {name: '*StorePurchaseApp*', type: family}
   - !appx: {name: '*Sway*', type: family}
+  - !appx: {name: '*UndockedDevKit*', type: family}
   - !appx: {name: '*Wallet*', type: family}
   - !appx: {name: '*WebExperienceHost*', type: app}
+  - !appx: {name: '*WidgetsPlatformRuntime*', type: family}
+  - !appx: {name: '*Win32WebViewHost*', type: family}
   - !appx: {name: '*Windows.DevHome*', type: family}
   - !appx: {name: '*WindowsCamera*', type: family}
   - !appx: {name: '*windowscommunicationsapps*', type: family}
@@ -64,7 +71,7 @@ actions:
   - !appx: {name: '*XboxGameCallableUI*', type: family}
   - !appx: {name: '*XboxGameOverlay*', type: family}
   - !appx: {name: '*XboxGamingOverlay*', type: family}
-  - !appx: {name: '*XboxIdenitity*', type: family}
+  - !appx: {name: '*XboxIdentity*', type: family}
   - !appx: {name: '*XboxSpeechToTextOverlay*', type: family}
   - !appx: {name: '*YourPhone*', type: family}
   - !appx: {name: '*Zune*', type: family}
